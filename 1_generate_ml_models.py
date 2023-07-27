@@ -6,9 +6,9 @@ import pickle
 
 from config import rand_var
 
-whichFeats='chemo'
+whichFeats='clinical'
 her2=0
-rcut = 1
+rcut = 0.8
 
 df_train = pd.read_csv('inputs/training_df.csv')
 
@@ -24,10 +24,10 @@ model_list_all = {}
 create_logsitc_model = True
 create_rf_model = True
 create_svc_model = True
-create_gb_model = True
-create_nb_model = True
-create_abc_model = True
-create_knn_model = True
+create_gb_model = False
+create_nb_model = False
+create_abc_model = False
+create_knn_model = False
 
 if create_logsitc_model:
 

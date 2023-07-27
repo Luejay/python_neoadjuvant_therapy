@@ -35,7 +35,7 @@ def optimise_logres_featsel(X, y, cut, cv, label='Response', prefix='somerespons
     param_grid = { 'kbest__k': np.arange(2,X.shape[1],1),
                     'logres__C': np.logspace(-3,3,30),
                     'logres__l1_ratio': np.arange(0.1,1.1,0.1),
-                    'logres__class_weight': ['balanced',{0: 1, 1: 2},{0: 2, 1: 1},{0: 1, 1: 4},{0: 4, 1: 1},{0: 1, 1: 6},{0: 6, 1: 1}]}
+                    'logres__class_weight': ['balanced',{0: 1, 1: 2},{0: 2, 1: 1},{0: 1, 1: 4},{0: 4, 1: 1}]}
     
     
     
@@ -144,7 +144,7 @@ def optimise_adaboost_featsel(X, y, cut, cv=5, label='Response', prefix='someres
     # Parameter ranges
     param_grid = { 'kbest__k': range(1,X.shape[1]),
                   "abc__n_estimators":[200,400,500,600,800,1000,1500],
-                  'abc__learning_rate':[0.001,0.01,0.1,1]
+                  'abc__learning_rate':[0.01,0.1,1]
                   }
     # Optimisation
     search = RandomizedSearchCV(pipe, param_grid, cv=cv, scoring='roc_auc',return_train_score=True, n_jobs=-1, verbose=0,n_iter=max,random_state=rand_var)
